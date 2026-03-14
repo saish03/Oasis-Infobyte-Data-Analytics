@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-df = pd.read_csv("datasets/house_prices.csv")
+df = pd.read_csv("house_prices.csv")
 
 X = df[['Area', 'Bedrooms', 'Bathrooms']]
 y = df['Price']

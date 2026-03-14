@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
-df = pd.read_csv("datasets/wine_quality.csv")
+df = pd.read_csv("wine_quality.csv")
 
 X = df.drop("quality", axis=1)
 y = df["quality"]
