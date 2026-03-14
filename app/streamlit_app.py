@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import os
 
 # ---------------- PAGE CONFIG ----------------
 
@@ -9,6 +10,14 @@ st.set_page_config(
     page_icon="📊",
     layout="wide"
 )
+
+# ---------------- DATA PATH SETUP ----------------
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+def load_data(filename):
+    path = os.path.join(BASE_DIR, "datasets", filename)
+    return pd.read_csv(path)
 
 # ---------------- HEADER ----------------
 
@@ -48,26 +57,17 @@ if page == "🏠 Home":
 
     st.markdown("---")
 
-    # KPI CARDS
     st.subheader("📊 Project Statistics")
 
     col1, col2, col3, col4 = st.columns(4)
 
-    with col1:
-        st.metric("📁 Total Projects", "5")
-
-    with col2:
-        st.metric("📊 Data Analytics Projects", "3")
-
-    with col3:
-        st.metric("🤖 Machine Learning Projects", "2")
-
-    with col4:
-        st.metric("🧰 Tools Used", "6+")
+    col1.metric("📁 Total Projects", "5")
+    col2.metric("📊 Data Analytics Projects", "3")
+    col3.metric("🤖 Machine Learning Projects", "2")
+    col4.metric("🧰 Tools Used", "6+")
 
     st.markdown("---")
 
-    # PROJECT CARDS
     st.subheader("📚 Projects Included in the Dashboard")
 
     c1, c2 = st.columns(2)
@@ -110,7 +110,6 @@ if page == "🏠 Home":
 
     st.markdown("---")
 
-    # TECHNOLOGY SECTION
     st.subheader("🛠 Technology Stack")
 
     t1, t2, t3, t4, t5 = st.columns(5)
@@ -123,7 +122,6 @@ if page == "🏠 Home":
 
     st.markdown("---")
 
-    # FEATURES SECTION
     st.subheader("✨ Dashboard Features")
 
     f1, f2, f3 = st.columns(3)
@@ -150,7 +148,7 @@ elif page == "📈 Retail Sales Analysis":
 
     st.header("Retail Sales Dashboard")
 
-    df = pd.read_csv("../datasets/retail_sales.csv")
+    df = load_data("retail_sales.csv")
 
     st.subheader("Dataset Preview")
     st.dataframe(df.head(), use_container_width=True)
@@ -181,7 +179,7 @@ elif page == "👥 Customer Segmentation":
 
     st.header("Customer Segmentation Analysis")
 
-    df = pd.read_csv("../datasets/mall_customers.csv")
+    df = load_data("mall_customers.csv")
 
     st.dataframe(df.head(), use_container_width=True)
 
@@ -209,7 +207,7 @@ elif page == "🏡 House Price Analysis":
 
     st.header("House Price Analytics")
 
-    df = pd.read_csv("../datasets/house_prices.csv")
+    df = load_data("house_prices.csv")
 
     st.dataframe(df.head(), use_container_width=True)
 
@@ -237,7 +235,7 @@ elif page == "🍷 Wine Quality Analysis":
 
     st.header("Wine Quality Dataset")
 
-    df = pd.read_csv("../datasets/wine_quality.csv")
+    df = load_data("wine_quality.csv")
 
     st.dataframe(df.head(), use_container_width=True)
 
