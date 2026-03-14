@@ -150,7 +150,7 @@ elif page == "📈 Retail Sales Analysis":
 
     st.header("Retail Sales Dashboard")
 
-    df = pd.read_csv("../Datasets/retail_sales.csv")
+    df = pd.read_csv("../datasets/retail_sales.csv")
 
     st.subheader("Dataset Preview")
     st.dataframe(df.head(), use_container_width=True)
@@ -181,7 +181,7 @@ elif page == "👥 Customer Segmentation":
 
     st.header("Customer Segmentation Analysis")
 
-    df = pd.read_csv("../Datasets/mall_customers.csv")
+    df = pd.read_csv("../datasets/mall_customers.csv")
 
     st.dataframe(df.head(), use_container_width=True)
 
@@ -209,7 +209,7 @@ elif page == "🏡 House Price Analysis":
 
     st.header("House Price Analytics")
 
-    df = pd.read_csv("../Datasets/house_prices.csv")
+    df = pd.read_csv("../datasets/house_prices.csv")
 
     st.dataframe(df.head(), use_container_width=True)
 
@@ -237,7 +237,7 @@ elif page == "🍷 Wine Quality Analysis":
 
     st.header("Wine Quality Dataset")
 
-    df = pd.read_csv("../Datasets/wine_quality.csv")
+    df = pd.read_csv("../datasets/wine_quality.csv")
 
     st.dataframe(df.head(), use_container_width=True)
 
